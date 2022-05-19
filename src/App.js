@@ -58,6 +58,7 @@ function App() {
     }
   ]
 
+  let res;
   // Switch profile here
   let currentUser = 1;
 
@@ -68,9 +69,9 @@ function App() {
           <NewPost currentUser={currentUser} user={users[currentUser]} onPost={handleNewPost}></NewPost>
         </Col>
         <Col className='d-flex justify-content-center align-items-center'>
-            <Form.Control className="form-control mr-sm-2" type="search" placeholder="Search" onChange={(event) => {
-              setSearchTerm(event.target.value)
-            }} aria-label="Search posts"/>
+          <Form.Control className="form-control mr-sm-2" type="search" placeholder="Search" onChange={(event) => {
+            setSearchTerm(event.target.value)
+          }} aria-label="Search posts" />
         </Col>
         <Col className='d-flex justify-content-end align-items-center'>
           <ProfilePic user={users[currentUser]}></ProfilePic>
@@ -78,18 +79,21 @@ function App() {
         </Col>
       </Row>
       <Row className='p-4'>
-          <Stack gap={4} className="col-12 mx-auto">
-            { postList.filter((post) =>{
-              if(searchTerm === ""){
-                return post;
-              }else if(post.text.trim().toLowerCase().includes(searchTerm.trim().toLowerCase())){
-                return post;
-              }
-            }).map((postObj, index) => {
-            return <Post key={index} user={users[postObj.user]} postObj={postObj} />
-            })
+        <Stack gap={4} className="col-12 mx-auto">
+          {res = postList.filter((post) => {
+            if (searchTerm === "") {
+              return true;
             }
-          </Stack>
+            if (searchTerm !== "" && post.text.trim().toLowerCase().includes(searchTerm.trim().toLowerCase())) {
+              return true;
+            }
+            return false;
+          }).map((postObj, index) => {
+            return <Post key={index} user={users[postObj.user]} postObj={postObj} />
+          })
+          }
+        </Stack>
+        { res.length === 0 ? (<Col className='text-center m-5'> No results found.</Col>) : ("")}
       </Row>
     </Container>
   );
