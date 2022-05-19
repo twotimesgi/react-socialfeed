@@ -34,18 +34,21 @@ function App() {
     {
       user: "twotimesgi",
       img: "https://via.placeholder.com/150x150",
+      newMessages: 0
     },
     {
       user: "pippotek",
       img: "https://via.placeholder.com/150x150",
+      newMessages: 4
     },
     {
       user: "rusky99",
       img: "https://via.placeholder.com/150x150",
+      newMessages: 1
     }
   ]
 
-  let currentUser = 1;
+  let currentUser = 0;
 
 return (
   <Container fluid="md">

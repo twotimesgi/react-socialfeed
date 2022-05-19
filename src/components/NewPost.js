@@ -20,7 +20,7 @@ function NewPost(props){
             let newMsg = {
                 user: props.currentUser,
                 text: textInput.current.value.trim(),
-                date : new Date().toLocaleDateString('en-US') + " " + new Date().toLocaleTimeString('en-US', )
+                date : new Date().toLocaleDateString('en-US') + " " + new Date().toLocaleTimeString('en-US')
             };
 
             props.onPost(newMsg);

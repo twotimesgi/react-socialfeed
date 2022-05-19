@@ -5,16 +5,18 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 function ProfilePic(props) {
 
     const popover = (
-        <Popover style={{width: '200px'}} id="popover-basic">
-                <Popover.Header as="h3">Hi, {props.user.user}</Popover.Header>
+        <Popover style={{ width: '200px' }} id="popover-basic">
+            <Popover.Header as="h3">Hi, {props.user.user}</Popover.Header>
             <Popover.Body className='p-0'>
                 <ListGroup className="rounded" variant="flush">
                     <ListGroup.Item>Account settings</ListGroup.Item>
                     <ListGroup.Item className="d-flex align-items-center justify-content-between">
                         <div>Private messages</div>
-                        <Badge pill bg="primary">
-                            10
-                        </Badge>
+                        {props.user.newMessages ? (
+                            <Badge pill bg="primary">
+                                {props.user.newMessages}
+                            </Badge>
+                        ) : (" ")}
                     </ListGroup.Item>
                     <ListGroup.Item>Logout</ListGroup.Item>
                 </ListGroup>
