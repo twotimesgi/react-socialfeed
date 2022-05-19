@@ -13,17 +13,17 @@ function NewPost(props){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [message, setMessage] = useState("");
     let textInput = React.createRef();
     const postHandler = () => {
         if(textInput.current.value.trim()){
             handleClose();
-            setMessage({
+            let newMsg = {
                 user: props.currentUser,
                 text: textInput.current.value.trim(),
-                date : new Date().toLocaleDateString()
-            });
-            console.log(message);
+                date : new Date().toLocaleDateString('en-US') + " " + new Date().toLocaleTimeString('en-US', )
+            };
+
+            props.onPost(newMsg);
         }
     }
     
