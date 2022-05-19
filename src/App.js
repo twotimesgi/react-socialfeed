@@ -27,7 +27,7 @@ function App() {
   const [postList, setPostList] = useState(examplePosts);
 
   const handleNewPost = (newPost) => {
-    setPostList([...postList, newPost]);
+    setPostList([newPost, ...postList]);
   }
 
   let users = [
