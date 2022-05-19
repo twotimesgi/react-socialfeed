@@ -44,7 +44,7 @@ return (
   <Container fluid="md">
     <Row className='p-4'>
       <Col className='d-flex justify-content-between'>
-        <NewPost currentUser={currentUser} user={users[currentUser]} onPost={pushPost}></NewPost>
+        <NewPost currentUser={currentUser} user={users[currentUser]} ></NewPost>
         <div>
           <ProfilePic user={users[currentUser]}></ProfilePic>
           <span>{users[currentUser].user}</span>
