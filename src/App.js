@@ -509,10 +509,16 @@ function App() {
   }]
   const [searchTerm, setSearchTerm] = useState("");
   const [postList, setPostList] = useState(DUMMY_POSTS);
+  
   const handleNewPost = (newPost) => {
     setPostList((old) => {
       return [newPost, ...old]
     });
+  }
+
+  const handleDelete = (key) => {
+    postList.splice(key, 1);
+    setPostList([...postList]);
   }
   let users = [{
     "user": "dtchaikovsky0",
@@ -946,8 +952,8 @@ function App() {
               return true;
             }
             return false;
-          }).map((postObj, index) => {
-            return <Post key={index} user={users[postObj.user]} postObj={postObj} />
+          }).map((postObj, key) => {
+            return <Post current={users[currentUser]} onDelete={handleDelete} key={key} index={key} user={users[postObj.user]} postObj={postObj} />
           })
           }
         </Stack>
