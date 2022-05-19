@@ -21,7 +21,7 @@ function Post(props) {
             </Card.Body>
 
             <Card.Footer className='d-flex justify-content-end'>
-                <span className='small text-muted'>{props.postObj.date}</span>
+                <span className='small text-muted'>{props.postObj.date} {props.postObj.time}</span>
             </Card.Footer>
         </Card>
     );
