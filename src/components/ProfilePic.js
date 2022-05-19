@@ -26,7 +26,7 @@ function ProfilePic(props) {
 
     return (
         <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-            <div className='me-3 d-inline-block'><Image alt="" src={props.user.img} className='me-1' roundedCircle="true" style={{ width: "45px" }} /><FontAwesomeIcon style={{ fontSize: "10px" }} icon={faChevronDown} /></div>
+            <div className='me-2 d-inline-block'><Image alt="" src={props.user.img} className='me-1' roundedCircle="true" style={{ width: "45px" }} /><FontAwesomeIcon style={{ fontSize: "10px" }} icon={faChevronDown} /></div>
         </OverlayTrigger>
     )
 }

@@ -8,7 +8,7 @@ function Post(props) {
             <Card.Body>
 
                 <Row>
-                    <Col xs={12} sm={4} md={4} lg={4} className="d-flex align-items-center flex-column">
+                    <Col xs={12} sm={4} md={4} lg={3} className="d-flex align-items-center flex-column">
                         <span className="mb-2" >{props.user.user}</span>
                         <Image style={{ width: "150px", objectFit: "fill" }} rounded="true" alt="" className="mb-3" src={props.user.img}></Image>
                     </Col>
