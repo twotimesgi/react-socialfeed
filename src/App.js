@@ -33,22 +33,22 @@ function App() {
   let users = [
     {
       user: "twotimesgi",
-      img: "https://via.placeholder.com/150x150",
+      img: require('./images/avatar1.jpg'),
       newMessages: 0
     },
     {
       user: "pippotek",
-      img: "https://via.placeholder.com/150x150",
+      img: require('./images/avatar2.jpg'),
       newMessages: 4
     },
     {
       user: "rusky99",
-      img: "https://via.placeholder.com/150x150",
+      img: require('./images/avatar3.jpg'),
       newMessages: 1
     }
   ]
 
-  let currentUser = 0;
+  let currentUser = 1;
 
 return (
   <Container fluid="md">
@@ -62,7 +62,7 @@ return (
       </Col>
     </Row>
     <Row className='p-4'>
-      { postList.length != 0 ? (
+      { postList.length !== 0 ? (
       <Stack gap={4} className="col-12 mx-auto">
         {postList.map((postObj, index) => <Post key={index} user={users[postObj.user]} postObj={postObj} />)}
       </Stack>

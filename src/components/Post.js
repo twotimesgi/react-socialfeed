@@ -10,7 +10,7 @@ function Post(props) {
                 <Row>
                     <Col xs={12} sm={4} md={4} lg={4} className="d-flex align-items-center flex-column">
                         <span className="mb-2" >{props.user.user}</span>
-                        <Image rounded="true" alt="" className="mb-3" src={props.user.img}></Image>
+                        <Image style={{ width: "150px", objectFit: "fill" }} rounded="true" alt="" className="mb-3" src={props.user.img}></Image>
                     </Col>
                     <Col>
                         <Card.Text>

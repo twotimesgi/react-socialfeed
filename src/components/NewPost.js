@@ -1,12 +1,7 @@
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import Container from 'react-bootstrap/Container';
-
+import {Button, Offcanvas, Container, Form} from 'react-bootstrap'; 
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { now } from '@celo/contractkit/lib/identity/claims/types';
 
 function NewPost(props){
     const [show, setShow] = useState(false);
@@ -26,11 +21,11 @@ function NewPost(props){
             props.onPost(newMsg);
         }
     }
-    
+     
     return (
         <>
             <Button variant="outline-primary" onClick={handleShow}>
-                Create a new post   <FontAwesomeIcon icon={faPenToSquare} />
+                Create a new post <FontAwesomeIcon icon={faPenToSquare} />
             </Button>
 
             <Offcanvas style={{height: '300px'}} placement="bottom" show={show} onHide={handleClose}>

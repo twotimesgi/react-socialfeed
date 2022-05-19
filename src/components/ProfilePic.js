@@ -6,7 +6,7 @@ function ProfilePic(props) {
 
     const popover = (
         <Popover style={{ width: '200px' }} id="popover-basic">
-            <Popover.Header as="h3">Hi, {props.user.user}</Popover.Header>
+            <Popover.Header as="h3">Hi, {props.user.user}!</Popover.Header>
             <Popover.Body className='p-0'>
                 <ListGroup className="rounded" variant="flush">
                     <ListGroup.Item>Account settings</ListGroup.Item>
