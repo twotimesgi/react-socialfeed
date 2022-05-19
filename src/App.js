@@ -28,19 +28,13 @@ function App() {
       date: "05/19/2022 9:16:03 AM"
     },
   ]
-  const postList = DUMMY_POSTS;
-  const [showedList, setShowedList] = useState(DUMMY_POSTS);
-
+  const [searchTerm, setSearchTerm] = useState("");
+  const [postList, setPostList] = useState(DUMMY_POSTS);
   const handleNewPost = (newPost) => {
-    postList.unshift(newPost);
-    setShowedList(postList);
+    setPostList((old) => {
+      return [newPost, ...old]
+    });
   }
-  const filterInput = React.createRef();
-  const filterPosts = () =>{
-    let filtered = postList.filter(post => post.text.trim().toLowerCase().includes(filterInput.current.value.trim().toLowerCase()));
-    setShowedList(filtered);
-  }
-
   let users = [
     {
       user: "twotimesgi",
@@ -65,7 +59,7 @@ function App() {
   ]
 
   // Switch profile here
-  let currentUser = 0;
+  let currentUser = 1;
 
   return (
     <Container fluid="md">
@@ -74,7 +68,9 @@ function App() {
           <NewPost currentUser={currentUser} user={users[currentUser]} onPost={handleNewPost}></NewPost>
         </Col>
         <Col className='d-flex justify-content-center align-items-center'>
-            <Form.Control ref={filterInput} className="form-control mr-sm-2" type="search" placeholder="Search" onChange={filterPosts} aria-label="Search posts"/>
+            <Form.Control className="form-control mr-sm-2" type="search" placeholder="Search" onChange={(event) => {
+              setSearchTerm(event.target.value)
+            }} aria-label="Search posts"/>
         </Col>
         <Col className='d-flex justify-content-end align-items-center'>
           <ProfilePic user={users[currentUser]}></ProfilePic>
@@ -82,13 +78,18 @@ function App() {
         </Col>
       </Row>
       <Row className='p-4'>
-        {showedList.length !== 0 ? (
           <Stack gap={4} className="col-12 mx-auto">
-            { showedList.map((postObj, index) => <Post key={index} user={users[postObj.user]} postObj={postObj} />)}
+            { postList.filter((post) =>{
+              if(searchTerm === ""){
+                return post;
+              }else if(post.text.trim().toLowerCase().includes(searchTerm.trim().toLowerCase())){
+                return post;
+              }
+            }).map((postObj, index) => {
+            return <Post key={index} user={users[postObj.user]} postObj={postObj} />
+            })
+            }
           </Stack>
-        ) : (
-          <div className='py-5 text-center text-muted'>There are no posts</div>
-        )}
       </Row>
     </Container>
   );
