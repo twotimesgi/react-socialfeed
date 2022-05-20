@@ -616,7 +616,7 @@ function App() {
       return [newPost, ...old]
     });
   }
-//TODO: 
+
   const handleDelete = (id) => {
     let elemIndex;
     postList.forEach((postObj, index) => {

@@ -4,7 +4,7 @@ import { Row, Card, Col, Image } from 'react-bootstrap';
 
 function Post(props) {
     const handleDelete = () => {
-        props.onDelete(props.index);
+        props.onDelete(props.postObj.id);
     }
     return (
         <Card>
@@ -24,7 +24,7 @@ function Post(props) {
 
             <Card.Footer className='d-flex justify-content-between'>
                 <span className='small text-muted'>{props.postObj.date} {props.postObj.time}</span>
-                { props.current.user === props.user.user && (<span className='small text-muted' onClick={handleDelete}>Delete post</span>)}
+                { props.current.user === props.user.user && (<span className='small text-primary' role='button' onClick={handleDelete}>Delete post</span>)}
             </Card.Footer>
         </Card>
     );
