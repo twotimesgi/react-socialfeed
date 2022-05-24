@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-socialfeed/static/css/main.38be36b0.css",
+    "main.js": "/react-socialfeed/static/js/main.108c3250.js",
+    "static/js/787.422b76e8.chunk.js": "/react-socialfeed/static/js/787.422b76e8.chunk.js",
+    "index.html": "/react-socialfeed/index.html",
+    "main.38be36b0.css.map": "/react-socialfeed/static/css/main.38be36b0.css.map",
+    "main.108c3250.js.map": "/react-socialfeed/static/js/main.108c3250.js.map",
+    "787.422b76e8.chunk.js.map": "/react-socialfeed/static/js/787.422b76e8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38be36b0.css",
+    "static/js/main.108c3250.js"
+  ]
+}
